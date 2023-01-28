@@ -2,22 +2,24 @@ import { Text, View, Image, StyleSheet, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { useEffect,useState } from "react";
-import {Auth} from "aws-amplify"
+import { useEffect, useState } from "react";
+import { Auth } from "aws-amplify";
 dayjs.extend(relativeTime);
 
 const ChatListItem = ({ chat }) => {
   const navigation = useNavigation();
-  const [user,setUser] = useState(null);
-  useEffect(()=>{
+  const [user, setUser] = useState(null);
+  useEffect(() => {
     const fetchUser = async () => {
       const authUser = await Auth.currentAuthenticatedUser();
-      const userItem = chat.users.items.find(item=>item.user.id!=authUser.attributes.sub);
-      setUser(userItem?.user)
+      const userItem = chat.users.items.find(
+        (item) => item.user.id != authUser.attributes.sub
+      );
+      setUser(userItem?.user);
     };
     fetchUser();
-  },[])
-  
+  }, []);
+
   return (
     <Pressable
       onPress={() =>
@@ -32,11 +34,11 @@ const ChatListItem = ({ chat }) => {
             {user?.name}
           </Text>
           <Text style={styles.subTitle}>
-            {dayjs(chat.lastMessage?.createdAt).fromNow(true)}
+            {dayjs(chat.LastMessage?.createdAt).fromNow(true)}
           </Text>
         </View>
         <Text style={styles.subTitle} numberOfLines={1}>
-          {chat.lastMessage?.text}
+          {chat.LastMessage?.text}
         </Text>
       </View>
     </Pressable>
