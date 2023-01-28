@@ -13,7 +13,7 @@ type EagerChatRoom = {
   };
   readonly id: string;
   readonly Messages?: (Message | null)[] | null;
-  readonly users?: (UserChatRoom | null)[] | null;
+  readonly users?: (ChatRoomUser | null)[] | null;
   readonly LastMessage?: Message | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -27,7 +27,7 @@ type LazyChatRoom = {
   };
   readonly id: string;
   readonly Messages: AsyncCollection<Message>;
-  readonly users: AsyncCollection<UserChatRoom>;
+  readonly users: AsyncCollection<ChatRoomUser>;
   readonly LastMessage: AsyncItem<Message | undefined>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
@@ -82,7 +82,7 @@ type EagerUser = {
   readonly status?: string | null;
   readonly image?: string | null;
   readonly Messages?: (Message | null)[] | null;
-  readonly ChatRooms?: (UserChatRoom | null)[] | null;
+  readonly ChatRooms?: (ChatRoomUser | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -97,7 +97,7 @@ type LazyUser = {
   readonly status?: string | null;
   readonly image?: string | null;
   readonly Messages: AsyncCollection<Message>;
-  readonly ChatRooms: AsyncCollection<UserChatRoom>;
+  readonly ChatRooms: AsyncCollection<ChatRoomUser>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -108,9 +108,9 @@ export declare const User: (new (init: ModelInit<User>) => User) & {
   copyOf(source: User, mutator: (draft: MutableModel<User>) => MutableModel<User> | void): User;
 }
 
-type EagerUserChatRoom = {
+type EagerChatRoomUser = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<UserChatRoom, 'id'>;
+    identifier: ManagedIdentifier<ChatRoomUser, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
@@ -122,9 +122,9 @@ type EagerUserChatRoom = {
   readonly updatedAt?: string | null;
 }
 
-type LazyUserChatRoom = {
+type LazyChatRoomUser = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<UserChatRoom, 'id'>;
+    identifier: ManagedIdentifier<ChatRoomUser, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
@@ -136,8 +136,8 @@ type LazyUserChatRoom = {
   readonly updatedAt?: string | null;
 }
 
-export declare type UserChatRoom = LazyLoading extends LazyLoadingDisabled ? EagerUserChatRoom : LazyUserChatRoom
+export declare type ChatRoomUser = LazyLoading extends LazyLoadingDisabled ? EagerChatRoomUser : LazyChatRoomUser
 
-export declare const UserChatRoom: (new (init: ModelInit<UserChatRoom>) => UserChatRoom) & {
-  copyOf(source: UserChatRoom, mutator: (draft: MutableModel<UserChatRoom>) => MutableModel<UserChatRoom> | void): UserChatRoom;
+export declare const ChatRoomUser: (new (init: ModelInit<ChatRoomUser>) => ChatRoomUser) & {
+  copyOf(source: ChatRoomUser, mutator: (draft: MutableModel<ChatRoomUser>) => MutableModel<ChatRoomUser> | void): ChatRoomUser;
 }

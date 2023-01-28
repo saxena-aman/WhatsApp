@@ -337,11 +337,11 @@ export const onDeleteUser = /* GraphQL */ `
     }
   }
 `;
-export const onCreateUserChatRoom = /* GraphQL */ `
-  subscription OnCreateUserChatRoom(
-    $filter: ModelSubscriptionUserChatRoomFilterInput
+export const onCreateChatRoomUser = /* GraphQL */ `
+  subscription OnCreateChatRoomUser(
+    $filter: ModelSubscriptionChatRoomUserFilterInput
   ) {
-    onCreateUserChatRoom(filter: $filter) {
+    onCreateChatRoomUser(filter: $filter) {
       id
       chatRoomId
       userId
@@ -400,11 +400,11 @@ export const onCreateUserChatRoom = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateUserChatRoom = /* GraphQL */ `
-  subscription OnUpdateUserChatRoom(
-    $filter: ModelSubscriptionUserChatRoomFilterInput
+export const onUpdateChatRoomUser = /* GraphQL */ `
+  subscription OnUpdateChatRoomUser(
+    $filter: ModelSubscriptionChatRoomUserFilterInput
   ) {
-    onUpdateUserChatRoom(filter: $filter) {
+    onUpdateChatRoomUser(filter: $filter) {
       id
       chatRoomId
       userId
@@ -463,11 +463,11 @@ export const onUpdateUserChatRoom = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteUserChatRoom = /* GraphQL */ `
-  subscription OnDeleteUserChatRoom(
-    $filter: ModelSubscriptionUserChatRoomFilterInput
+export const onDeleteChatRoomUser = /* GraphQL */ `
+  subscription OnDeleteChatRoomUser(
+    $filter: ModelSubscriptionChatRoomUserFilterInput
   ) {
-    onDeleteUserChatRoom(filter: $filter) {
+    onDeleteChatRoomUser(filter: $filter) {
       id
       chatRoomId
       userId

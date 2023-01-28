@@ -364,12 +364,12 @@ export const deleteUser = /* GraphQL */ `
     }
   }
 `;
-export const createUserChatRoom = /* GraphQL */ `
-  mutation CreateUserChatRoom(
-    $input: CreateUserChatRoomInput!
-    $condition: ModelUserChatRoomConditionInput
+export const createChatRoomUser = /* GraphQL */ `
+  mutation CreateChatRoomUser(
+    $input: CreateChatRoomUserInput!
+    $condition: ModelChatRoomUserConditionInput
   ) {
-    createUserChatRoom(input: $input, condition: $condition) {
+    createChatRoomUser(input: $input, condition: $condition) {
       id
       chatRoomId
       userId
@@ -428,12 +428,12 @@ export const createUserChatRoom = /* GraphQL */ `
     }
   }
 `;
-export const updateUserChatRoom = /* GraphQL */ `
-  mutation UpdateUserChatRoom(
-    $input: UpdateUserChatRoomInput!
-    $condition: ModelUserChatRoomConditionInput
+export const updateChatRoomUser = /* GraphQL */ `
+  mutation UpdateChatRoomUser(
+    $input: UpdateChatRoomUserInput!
+    $condition: ModelChatRoomUserConditionInput
   ) {
-    updateUserChatRoom(input: $input, condition: $condition) {
+    updateChatRoomUser(input: $input, condition: $condition) {
       id
       chatRoomId
       userId
@@ -492,12 +492,12 @@ export const updateUserChatRoom = /* GraphQL */ `
     }
   }
 `;
-export const deleteUserChatRoom = /* GraphQL */ `
-  mutation DeleteUserChatRoom(
-    $input: DeleteUserChatRoomInput!
-    $condition: ModelUserChatRoomConditionInput
+export const deleteChatRoomUser = /* GraphQL */ `
+  mutation DeleteChatRoomUser(
+    $input: DeleteChatRoomUserInput!
+    $condition: ModelChatRoomUserConditionInput
   ) {
-    deleteUserChatRoom(input: $input, condition: $condition) {
+    deleteChatRoomUser(input: $input, condition: $condition) {
       id
       chatRoomId
       userId

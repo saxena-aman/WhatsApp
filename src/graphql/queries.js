@@ -381,9 +381,9 @@ export const syncUsers = /* GraphQL */ `
     }
   }
 `;
-export const getUserChatRoom = /* GraphQL */ `
-  query GetUserChatRoom($id: ID!) {
-    getUserChatRoom(id: $id) {
+export const getChatRoomUser = /* GraphQL */ `
+  query GetChatRoomUser($id: ID!) {
+    getChatRoomUser(id: $id) {
       id
       chatRoomId
       userId
@@ -442,13 +442,13 @@ export const getUserChatRoom = /* GraphQL */ `
     }
   }
 `;
-export const listUserChatRooms = /* GraphQL */ `
-  query ListUserChatRooms(
-    $filter: ModelUserChatRoomFilterInput
+export const listChatRoomUsers = /* GraphQL */ `
+  query ListChatRoomUsers(
+    $filter: ModelChatRoomUserFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listUserChatRooms(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listChatRoomUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         chatRoomId
@@ -484,14 +484,14 @@ export const listUserChatRooms = /* GraphQL */ `
     }
   }
 `;
-export const syncUserChatRooms = /* GraphQL */ `
-  query SyncUserChatRooms(
-    $filter: ModelUserChatRoomFilterInput
+export const syncChatRoomUsers = /* GraphQL */ `
+  query SyncChatRoomUsers(
+    $filter: ModelChatRoomUserFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncUserChatRooms(
+    syncChatRoomUsers(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -532,15 +532,15 @@ export const syncUserChatRooms = /* GraphQL */ `
     }
   }
 `;
-export const userChatRoomsByChatRoomId = /* GraphQL */ `
-  query UserChatRoomsByChatRoomId(
+export const chatRoomUsersByChatRoomId = /* GraphQL */ `
+  query ChatRoomUsersByChatRoomId(
     $chatRoomId: ID!
     $sortDirection: ModelSortDirection
-    $filter: ModelUserChatRoomFilterInput
+    $filter: ModelChatRoomUserFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    userChatRoomsByChatRoomId(
+    chatRoomUsersByChatRoomId(
       chatRoomId: $chatRoomId
       sortDirection: $sortDirection
       filter: $filter
@@ -582,15 +582,15 @@ export const userChatRoomsByChatRoomId = /* GraphQL */ `
     }
   }
 `;
-export const userChatRoomsByUserId = /* GraphQL */ `
-  query UserChatRoomsByUserId(
+export const chatRoomUsersByUserId = /* GraphQL */ `
+  query ChatRoomUsersByUserId(
     $userId: ID!
     $sortDirection: ModelSortDirection
-    $filter: ModelUserChatRoomFilterInput
+    $filter: ModelChatRoomUserFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    userChatRoomsByUserId(
+    chatRoomUsersByUserId(
       userId: $userId
       sortDirection: $sortDirection
       filter: $filter
